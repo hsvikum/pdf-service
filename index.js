@@ -46,7 +46,7 @@ app.post('/create-pdf/:type', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-    return res.sendFile(`${__dirname}/result.pdf`, (err) =>{
+     res.sendFile(`${__dirname}/result.pdf`, (err) =>{
         if(err) {
             return res.send(Promise.reject());
         }
@@ -54,13 +54,9 @@ app.get('/fetch-pdf', (req, res) => {
     });
 })
 
+
 app.get('/fetch-pdf-presidential', (req, res) => {
-    return res.sendFile(`${__dirname}/result2.pdf`, (err) =>{
-        if(err) {
-            return res.send(Promise.reject());
-        }
-        return res.send(Promise.resolve());
-    });
+    return res.sendFile(`${__dirname}/result2.pdf`);
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
