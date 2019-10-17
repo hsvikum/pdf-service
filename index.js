@@ -20,17 +20,21 @@ const PresidentialPdfTemplate = require('./documents/presidential_nomination_for
 const app = express();
 
 const port = process.env.PORT || 5000;
+const FILE_UPLOAD_PATH =   "./"
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.post('/create-pdf', (req, res) => {
-    pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
+    filePath = FILE_UPLOAD_PATH + 'result.pdf'
+    pdf.create(pdfTemplate(req.body), {}).toFile(filePath, (err) => {
         if(err) {
-            console.log("=create======= Error : ", err.stack)
+            console.log("=create======= Error : "+ filePath + " === ", err.stack)
+            return res.send(Promise.reject());
         }
-        console.log("=create======= Success : ")
+        console.log("=create======= Success : ", filePath)
+        return res.send(Promise.resolve());
     });
 });
 
@@ -46,11 +50,12 @@ app.post('/create-pdf/:type', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-     res.sendFile(`${__dirname}/result.pdf`, (err) =>{
+    filePath = FILE_UPLOAD_PATH + 'result.pdf'
+     res.sendFile(filePath, (err) =>{
         if(err) {
-            console.log("======== Error : ", err.stack)
+            console.log("======== Error : " + filePath + " === ", err.stack)
         }
-        console.log("======== Success : ")
+        console.log("======== Success : ", filePath)
     });
 })
 
