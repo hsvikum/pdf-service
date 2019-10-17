@@ -27,6 +27,7 @@ var options = {
 
 const pdfTemplate = require('./documents');
 const PresidentialPdfTemplate = require('./documents/presidential_nomination_form_sin.js');
+const pdfTemplateDev = require(`${__dirname}/documents`);
 
 const app = express();
 
@@ -39,7 +40,7 @@ app.use(bodyParser.json());
 
 app.post('/create-pdf', (req, res) => {
     filePath = FILE_UPLOAD_PATH + 'result.pdf'
-    pdf.create(pdfTemplate(req.body), {}).toFile(filePath, (err) => {
+    pdf.create(pdfTemplateDev(req.body), {}).toFile(filePath, (err) => {
         if(err) {
             console.log("=create======= Error : "+ filePath + " === ", err.stack)
             return res.send(Promise.reject());
