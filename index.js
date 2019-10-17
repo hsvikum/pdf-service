@@ -48,9 +48,9 @@ app.post('/create-pdf/:type', (req, res) => {
 app.get('/fetch-pdf', (req, res) => {
      res.sendFile(`${__dirname}/result.pdf`, (err) =>{
         if(err) {
-            return res.send(Promise.reject());
+            console.log("======== Error : ", err.stack)
         }
-        return res.send(Promise.resolve());
+        console.log("======== Success : ")
     });
 })
 
