@@ -28,9 +28,9 @@ app.use(bodyParser.json());
 app.post('/create-pdf', (req, res) => {
     pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
         if(err) {
-            return res.send(Promise.reject());
+            console.log("=create======= Error : ", err.stack)
         }
-        return res.send(Promise.resolve());
+        console.log("=create======= Success : ")
     });
 });
 
