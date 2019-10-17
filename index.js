@@ -31,7 +31,7 @@ const PresidentialPdfTemplate = require('./documents/presidential_nomination_for
 const app = express();
 
 const port = process.env.PORT || 5000;
-const FILE_UPLOAD_PATH =   "./"
+const FILE_UPLOAD_PATH =   `${__dirname}/`
 
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
