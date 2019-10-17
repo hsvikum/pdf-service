@@ -55,7 +55,12 @@ app.get('/fetch-pdf', (req, res) => {
 })
 
 app.get('/fetch-pdf-presidential', (req, res) => {
-    return res.sendFile(`${__dirname}/result2.pdf`);
+    return res.sendFile(`${__dirname}/result2.pdf`, (err) =>{
+        if(err) {
+            return res.send(Promise.reject());
+        }
+        return res.send(Promise.resolve());
+    });
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
