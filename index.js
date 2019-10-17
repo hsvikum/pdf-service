@@ -26,18 +26,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.post('/create-pdf', (req, res) => {
-    console.log("hhhhhhhhhhh",res);
     pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
         if(err) {
             res.send(Promise.reject());
         }
-
         res.send(Promise.resolve());
     });
 });
 
 app.post('/create-pdf/:type', (req, res) => {
-    console.log("hhhhhhhhhhh",req.params);
     if(req.params.type==='presidential'){
         pdf.create(PresidentialPdfTemplate(req.body), options).toFile('result2.pdf', (err) => {
             if(err) {
@@ -49,12 +46,11 @@ app.post('/create-pdf/:type', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-    console.log("path",`${__dirname}/result.pdf`);
-     res.sendFile(`${__dirname}/result.pdf`)
+     res.sendFile(`${__dirname}/result.pdf`);
 })
 
 app.get('/fetch-pdf-presidential', (req, res) => {
-     res.sendFile(`${__dirname}/result2.pdf`)
+     res.sendFile(`${__dirname}/result2.pdf`);
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
