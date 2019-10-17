@@ -49,11 +49,12 @@ app.post('/create-pdf/:type', (req, res) => {
 });
 
 app.get('/fetch-pdf', (req, res) => {
-    res.sendFile(`${__dirname}/result.pdf`)
+    console.log("path",`${__dirname}/result.pdf`);
+     res.sendFile(`${__dirname}/result.pdf`)
 })
 
 app.get('/fetch-pdf-presidential', (req, res) => {
-    res.sendFile(`${__dirname}/result2.pdf`)
+     res.sendFile(`${__dirname}/result2.pdf`)
 })
 
 app.listen(port, () => console.log(`Listening on port ${port}`));
