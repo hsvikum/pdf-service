@@ -43,10 +43,10 @@ app.post('/create-pdf', (req, res) => {
     pdf.create(pdfTemplate(req.body), {}).toFile(filePath, (err) => {
         if(err) {
             console.log("=create======= Error : "+ filePath + " === ", err.stack)
-            return res.send(Promise.reject());
+             res.send(Promise.reject());
         }
         console.log("=create======= Success : ", filePath)
-        return res.send(Promise.resolve());
+         res.send(Promise.resolve());
     });
 }catch(err){
     console.log("ddddddddd",err);
