@@ -2,6 +2,8 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const pdf = require('html-pdf');
 const cors = require('cors');
+const path = require("path");
+
 var options = { 
     "format" : 'Legal',
     "border": {
@@ -40,13 +42,13 @@ app.use(bodyParser.json());
 app.post('/create-pdf', (req, res) => {
     filePath = FILE_UPLOAD_PATH + 'result.pdf'
     try{
-    pdf.create(pdfTemplate(req.body), {}).toFile(filePath, (err) => {
+    pdf.create(pdfTemplate(req.body), {}).toFile(path.resolve(__dirname, "./result.pdf"), (err) => {
         if(err) {
-            console.log("=create======= Error : "+ filePath + " === ", err.stack)
-             res.send(Promise.reject());
+            console.log("=create======= Error : "+ path.resolve(__dirname, "./result.pdf") + " === ", err.stack)
+            return res.send(Promise.reject());
         }
         console.log("=create======= Success : ", filePath)
-         res.send(Promise.resolve());
+        return res.send(Promise.resolve());
     });
 }catch(err){
     console.log("ddddddddd",err);
