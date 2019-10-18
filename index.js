@@ -40,7 +40,8 @@ app.use(bodyParser.json());
 
 app.post('/create-pdf', (req, res) => {
     filePath = FILE_UPLOAD_PATH + 'result.pdf'
-    pdf.create(pdfTemplateDev(req.body), {}).toFile('result.pdf', (err) => {
+    try{
+    pdf.create(pdfTemplate(req.body), {}).toFile('result.pdf', (err) => {
         if(err) {
             console.log("=create======= Error : "+ filePath + " === ", err.stack)
             return res.send(Promise.reject());
@@ -48,6 +49,9 @@ app.post('/create-pdf', (req, res) => {
         console.log("=create======= Success : ", filePath)
         return res.send(Promise.resolve());
     });
+}catch(err){
+    console.log("ddddddddd",err);
+}
 });
 
 app.post('/create-pdf/:type', (req, res) => {
