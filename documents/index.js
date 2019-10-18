@@ -4,6 +4,7 @@ return `
     <!doctype html>
     <html>
     <head>
+    <meta charset="UTF-8">
         <style>
             .header-left { grid-area: leftheader; background-color: azure;}
             .header {  background-color: white; vertical-align: bottom;text-align: center;}
