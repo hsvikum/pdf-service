@@ -48,8 +48,12 @@ module.exports = async function(req, res) {
     const page = await global.browser.newPage();
     if (req.body.url) {
         await page.goto(req.body.url);
-    } else {
+    } else if (req.body.html) {
         await page.setContent(req.body.html);
+    } else if (req.body.file) { 
+        const file = req.body.file;
+        const exampleHtml = require('../templates/'+file.template);
+        await page.setContent(exampleHtml(file));
     }
     await page.pdf(pdfOptions);
 
