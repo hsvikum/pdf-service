@@ -43,7 +43,7 @@ module.exports = async function(req, res) {
     }
 
     if (!global.browser) {
-        const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+        const browser = await puppeteer.launch({ headless: true, args: ['--no-sandbox'] })
     }
     const page = await global.browser.newPage();
     if (req.body.url) {
@@ -52,8 +52,8 @@ module.exports = async function(req, res) {
         await page.setContent(req.body.html);
     } else if (req.body.file) { 
         const file = req.body.file;
-        const exampleHtml = require('../templates/'+file.template);
-        await page.setContent(exampleHtml(file));
+        const htmlContent = require('../templates/'+file.template);
+        await page.setContent(htmlContent(file));
     }
     await page.pdf(pdfOptions);
 
