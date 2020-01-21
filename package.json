@@ -1,14 +1,14 @@
 {
-  "name": "puppeteer-html-to-converter",
+  "name": "pdf-generate-service",
   "version": "1.0.0",
-  "description": "A html to pdf converter rest api which generates it's pdfs using the a headless chrome instance powered by Puppeteer",
+  "description": "pdf generated using the a headless chrome instance powered by Puppeteer",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index",
     "watch": "nodemon start"
   },
-  "author": "Frits van Turnhout",
+  "author": "MrClemRkz",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
