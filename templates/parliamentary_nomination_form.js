@@ -48,6 +48,8 @@ module.exports = (data) => {
                 15 (1) වන වගන්තිය
             </div>
             <div class="col-4">
+                <span class="bold">முதலாம் அட்டவணை</span><br/>
+                <span class="bold">படிவம் 'அ'</span><br/>
                 பிரிவூ 15 (1)
             </div>
             <div class="col-4">
@@ -56,6 +58,8 @@ module.exports = (data) => {
                 Section 15 (1)
             </div>
         </div>
+        <br/>
+        <br/>
         <div class="row text-center">
             <div class="col-12 bold">
                 පාර්ලිමේන්තු මැතිවරණය
@@ -114,35 +118,40 @@ module.exports = (data) => {
                         <col span="1" style="width: 1%;">
                         <col span="1" style="width: 1%;">
                         <col span="1" style="width: 1%;">
+                        <col span="1" style="width: 1%;">
+                        <col span="1" style="width: 1%;">
                         <col span="1" style="width: 25%;">
                         <col span="1" style="width: 15%;">
-                        <col span="1" style="width: 25%;">
+                        <col span="1" style="width: 23%;">
                      </colgroup>
                     <thead>
                         <tr>
                             <th width="10%" scope="col" rowspan="2">
                                 අපේක්ෂකයාගේ නම<br/>
+                                வேட்பாளரின் பெயர்<br/>
                                 Name of Candidate
                             </th>
-                            <th scope="col" rowspan="2" colspan="10">
+                            <th scope="col" rowspan="2" colspan="12">
                                 ජාතික හැඳුනුම්පත් අංකය<br/>
+                                தேசிய அடையாள அட்டை இல.<br/>
                                 National Identity Card No.
                             </th>
                             <th scope="col" rowspan="1" colspan="2">
-                                අපේක්ෂකයාගේ / Candidate's
+                                අපේක්ෂකයාගේ / வேட்பாளரின் / Candidate's
                             </th>
             
                             <th scope="col" rowspan="2">
                                 තමාගේ කැමැත්ත දක්වන සහ තෝරා  පත්කර ගැනීම සඳහා කිසිම නුසුදුසුකමකට තමා යටත් නොවන බවට සහතික කරන එක් එක් අපේක්ෂකයාගේ අත්සන<br/>
+                                சம்மதத்தினை தெரிவித்து, அத்துடன் தேர்ந்தெடுக்கப்படுவது தொடர்பாக ஏதேனும் தகுதியீனத்திற்கு ஆளாகவில்லை என்பதனை உறுதிப்படுத்தும் ஒவ்வொரு வேட்பாளரினதும் பெயர்<br/>
                                 Signature of each candidate signifying consent and certifying that he/she is not subject to any disqualification for election
                             </th>
                         </tr>
                         <tr>
                             <th scope="col">
-                                ලිපිනය / Address
+                                ලිපිනය / முகவரி / Address
                             </th>
                             <th scope="col">
-                                රක්ෂාව / Occupation
+                                රක්ෂාව / தொழில் / Occupation
                             </th>
                         </tr>
                     </thead>
@@ -168,6 +177,11 @@ module.exports = (data) => {
                             </div>
                             <div class="col-12">
                                 <p>
+                                மேலேபெயர் குறிப்பிடப்பட்டுள்ள அங்கீகரிக்கப்பட்ட அரசியற் கட்சியின் செயலாளராகிய / குழுத் தலைவராகிய ................................................ அவர்களினால் 20......... மாதம் ........................ ஆம் நாளாகிய இன்று........................ என் முன்னிலையில் ஒப்பமிடப்பட்டது.
+                                </p>
+                            </div>
+                            <div class="col-12">
+                                <p>
                                     Signed by the above-mentioned ................................................ Secretary of recognized political party /* group leader in my presence at ................................................ on this day ........................, of ........................ 20.........
                                 </p>
                             </div>
@@ -178,12 +192,13 @@ module.exports = (data) => {
                                 <p>
                                     .............................................................................<br/>
                                     සාමදාන විනිශ්චයකාරවරයා හෝ ප්‍රසිද්ධ නොතාරිස්<br/>
+                                    சமாதான நீதவான் / பிரசித்த நொத்தாரிஸ்<br/>
                                     Justice of the Peace or Notary Public
                                 </p>
                             </div>
                             <div class="col-12">
                                 <p>
-                                * අනවශ්‍ය දෑ කපා හරින්න /* Delete whichever is inapplicable
+                                * අනවශ්‍ය දෑ කපා හරින්න /*தேவையற்ற சொற்களை நீக்கிவிடவும் /* Delete whichever is inapplicable
                                 </p>
                             </div>
                         </div>
@@ -197,19 +212,20 @@ module.exports = (data) => {
                                 <p>
                                     .............................................................................<br/>
                                     පිළිගත් දේශපාලන පක්ෂයේ ලේකම්ගේ /* කණ්ඩායමේ නායකයාගේ අත්සන<br/>
+                                    அரசியற் கட்சிச் செயலாளரின் /* குழுத் தலைவரின் ஒப்பம்<br/>
                                     Signature of Secretary of recognized political party /* group leader
                                 </p>
                             </div>
             
                             <div class="col-12 text-right">
                                 <p>
-                                    නම / Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ................................................................<br/>
+                                    නම / பெயர் / Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ................................................................<br/>
                                     : ................................................................
                                 </p>
                             </div>
                             <div class="col-12 text-right">
                                 <p>
-                                    ලිපිනය / Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ................................................................<br/>
+                                    ලිපිනය / முகவரி / Address&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: ................................................................<br/>
                                     : ................................................................
                                 </p>
                             </div>
@@ -320,8 +336,19 @@ function generateCandidateRows(data) {
             let candidate = data.nominationData.candidateData[i];
             let nic = candidate.nic.split("");
             row = `<tr>
-                      <td>${(i + 1)}. ${candidate.fullName}</td><td>${nic[0]}</td><td>${nic[1]}</td><td>${nic[2]}</td><td>${nic[3]}</td><td>${nic[4]}</td><td>${nic[5]}</td><td>${nic[6]}</td><td>${nic[7]}</td><td>${nic[8]}</td><td>${nic[9]}</td><td>${candidate.address}</td><td>${candidate.occupation}</td><td></td>
-                   </tr>`;
+                       <td>${(i + 1)}. ${candidate.fullName}</td>
+            `;
+            for(var j = 0; j < 12; j++) {
+                let digit = nic[j];
+                if (digit) {
+                    row += `<td>${digit}</td>`;
+                } else {
+                    row += `<td></td>`;
+                }
+            }
+            row += `
+                <td>${candidate.address}</td><td>${candidate.occupation}</td><td></td>
+            </tr>`;
         } else {
             break;
         }
