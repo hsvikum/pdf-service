@@ -322,6 +322,7 @@ function generateCandidateAffirmationForm(data) {
             </td>
         </tr>
     </table>
+    </div>
     <hr/>
         `;
     });
