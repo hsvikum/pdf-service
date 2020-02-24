@@ -11,6 +11,9 @@ module.exports = (data) => {
     <meta charset="UTF-8">
     <link rel="stylesheet" href="${baseURL}/css/bootstrap.min.css" >
     <style>
+        @page {
+            size: auto;
+        }
         td, th {
             border-color: black !important;
         }
