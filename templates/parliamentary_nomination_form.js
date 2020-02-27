@@ -252,7 +252,7 @@ module.exports = (data) => {
 function generateCandidateAffirmationForm(data) {
     let forms = '';
     data.nominationData.candidateData.forEach(candidate => {
-        let candidateName = candidate.fullName;
+        let candidateName = candidate.FULL_NAME;
         forms += `
         <div class="container" style="font-size: 10px">
         <table>
@@ -338,9 +338,9 @@ function generateCandidateRows(data) {
     for (let i = 0; i < 24; i++) {
         if (data.nominationData.candidateData[i]) {
             let candidate = data.nominationData.candidateData[i];
-            let nic = candidate.nic.split("");
+            let nic = candidate.NIC.split("");
             row = `<tr>
-                       <td>${(i + 1)}. ${candidate.fullName}</td>
+                       <td>${(i + 1)}. ${candidate.FULL_NAME}</td>
             `;
             for(var j = 0; j < 12; j++) {
                 let digit = nic[j];
@@ -351,7 +351,7 @@ function generateCandidateRows(data) {
                 }
             }
             row += `
-                <td>${candidate.address}</td><td>${candidate.occupation}</td><td></td>
+                <td>${candidate.ADDRESS}</td><td>${candidate.OCCUPATION}</td><td></td>
             </tr>`;
         } else {
             break;
