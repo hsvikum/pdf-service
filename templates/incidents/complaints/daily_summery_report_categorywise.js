@@ -1,13 +1,13 @@
-const config = require('../config');
-const baseURL = config('BASE_URL');
+const config = require("../../../config");
+const baseURL = config("BASE_URL");
 
-module.exports = (data) => {
-	let date = data.date;
-	let categories = data.categories;
-  	let otherComplaintCount = data.other;
-  	let totalComplaintCount = data.total;
+module.exports = data => {
+  let date = data.date;
+  let categories = data.categories;
+  let otherComplaintCount = data.other;
+  let totalComplaintCount = data.total;
 
-	let template = `
+  let template = `
 		<!DOCTYPE html>
 		<html>
 			<head>
@@ -54,12 +54,26 @@ module.exports = (data) => {
 			</head>
 			<body class="document-border">
 				<table>
-				<tr>
-					<th colspan="3">
+        <tr>
+          <th style="border: none; width: 150px">
+            <img
+              src="${baseURL}/assets/national-emblem.png"
+              alt="emblem-srilanka"
+              style="height:100px;"
+            />
+          </th>
+          <th style="border: none">
 						<div class="bold">මහමැතිවරණය - 2020</div>
 						<div class="bold">பாராளுமன்றத் தேர்தல் - 2020</div>
 						<div class="bold">Parliamentary Election - 2020</div>
-					</th>
+          </th>
+          <th style="border: none; width: 150px">
+            <img
+              src="${baseURL}/assets/elections-logo.jpg"
+              alt="elections-logo"
+              style="height:100px;"
+            />
+          </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
@@ -104,8 +118,8 @@ module.exports = (data) => {
 					</th>
 				</tr>`;
 
-  	template += generateCategoryRows(categories);
-	template += `
+  template += generateCategoryRows(categories);
+  template += `
 				<tr>
 					<th>
 						<div>වෙනත්</div>
@@ -131,41 +145,40 @@ module.exports = (data) => {
 };
 
 function generateCategoryRows(categories = []) {
-    let rowCollection = "";
+  let rowCollection = "";
 
-    for (let i = 0; i < categories.length; i++) {
-        let row = "";
+  for (let i = 0; i < categories.length; i++) {
+    let row = "";
 
-        // check if sub categories exist
-        if (categories[i].subCategories && categories[i].subCategories.length > 0 ) {
-            let subCategories = categories[i].subCategories;
+    // check if sub categories exist
+    if (categories[i].subCategories && categories[i].subCategories.length > 0) {
+      let subCategories = categories[i].subCategories;
 
-		    row = `<tr>
+      row = `<tr>
 					<th rowspan=${subCategories.length}>
 						<div>${categories[i].categoryNameSinhala}</div>
 						<div class="font-small">${categories[i].categoryNameTamil}</div>
 					</th>`;
 
-            for (let j = 0; j < subCategories.length; j++) {
-
-            if (j == 0) {
-                row += `
+      for (let j = 0; j < subCategories.length; j++) {
+        if (j == 0) {
+          row += `
                     <td>${subCategories[j].name}</td>
                     <td class="text-center">${subCategories[j].count}</td>
                 </tr>`;
-            } else {
-                row += `<tr>
+        } else {
+          row += `<tr>
                             <td>${subCategories[j].name}</td>
                             <td class="text-center">${subCategories[j].count}</td>
                         </tr>`;
-            }
         }
-      } else {
-    	break;
       }
-
-      rowCollection += row;
+    } else {
+      break;
     }
 
-    return rowCollection;
-  };
+    rowCollection += row;
+  }
+
+  return rowCollection;
+}
