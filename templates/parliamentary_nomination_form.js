@@ -345,7 +345,7 @@ function generateCandidateRows(data) {
             let candidate = data.nominationData.candidateData[i];
             let nic = candidate.NIC.split("");
             row = `<tr>
-                       <td>${(i + 1)}. ${candidate.FULL_NAME}</td>
+                       <td>${(i + 1)}. ${candidate.PREFERRED_NAME}</td>
             `;
             for(var j = 0; j < 12; j++) {
                 let digit = nic[j];
