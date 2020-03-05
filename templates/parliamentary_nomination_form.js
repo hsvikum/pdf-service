@@ -25,7 +25,8 @@ module.exports = (data) => {
             border-bottom: 1px solid black;
             border-style: dotted;
             background: none;
-            width: 62%;
+            width: auto;
+            min-width: 20%;
             margin-top: 5px;
             text-align: center
         }
@@ -43,7 +44,7 @@ module.exports = (data) => {
 </head>
 
 <body class="document-border">
-    <div class="container" style="font-size: 10px">
+    <div style="font-size: 10px">
         <div class="row text-center">
             <div class="col-4">
                 <span class="bold">පළමුවන උපලේඛනය</span> <br/>
@@ -91,20 +92,26 @@ module.exports = (data) => {
         </div>
         <br/>
 
-        <div class="row text-center">
-            <p>
-                පිළිගත් දේශපාලන පක්ෂයක් වන <input type="text" value='${partyName}' /> පක්ෂය/* ................................................ මහතා/මහත්මිය/මෙනවිය ගේ නායකත්වයෙන් යුක්ත වූ ස්වාධීන අපේක්ෂකයන් කණ්ඩායම විසින් මෙහි පහත නම් සඳහන් තැනැත්තන්, ඉහත සඳහන් අංක........................ දරන................................................ මැතිවැතිවරණ කොට්ඨාශයට මන්ත්‍රීවරයන් තෝරා පත්කර ගැනීමේ මැතිවරණය සඳහා අපේක්ෂකයන් වශයෙන්, මෙයින් නාම යෝජනා කරනු ලැබේ.
-            </p>
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    පිළිගත් දේශපාලන පක්ෂයක් වන <input type="text" value='${partyName}' /> පක්ෂය/* ................................................ මහතා/මහත්මිය/මෙනවිය ගේ නායකත්වයෙන් යුක්ත වූ ස්වාධීන අපේක්ෂකයන් කණ්ඩායම විසින් මෙහි පහත නම් සඳහන් තැනැත්තන්, ඉහත සඳහන් අංක........................ දරන ................................................ මැතිවැතිවරණ කොට්ඨාශයට මන්ත්‍රීවරයන් තෝරා පත්කර ගැනීමේ මැතිවරණය සඳහා අපේක්ෂකයන් වශයෙන්, මෙයින් නාම යෝජනා කරනු ලැබේ.
+                </p>
+            </div>
         </div>
-        <div class="row text-center">
-            <p>
-                அங்கீகரிக்கப்பட்ட அரசியல் கட்சியான <input type="text" value='${partyName}' /> கட்சிஇ திரு.ஃ திருமதிஃசெல்வி ................................................ அவரகளின் தலைமையிலான சுயேட்சை வேட்பாளர் குழுவினால் இங்கு கீழ் குறிப்பிடப்படும் பெயர் குறிப்பிடப்படும் நபர்கள் மேலே குறிப்பிடப்பட்ட ........................ஆம் இலக்க ................................................ தேர்தல் மாவட்டத்திற்கு பாராளுமன்ற உறுப்பினர்களைத் தெரிவூ செய்யூம் தேர்தலுக்காக வேட்பாளர்களாக இத்தால் பெயர் குறித்து நியமிக்கப்படுகின்றது.
-            </p>
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    அங்கீகரிக்கப்பட்ட அரசியல் கட்சியான <input type="text" value='${partyName}' /> கட்சிஇ திரு.ஃ திருமதிஃசெல்வி ................................................ அவரகளின் தலைமையிலான சுயேட்சை வேட்பாளர் குழுவினால் இங்கு கீழ் குறிப்பிடப்படும் பெயர் குறிப்பிடப்படும் நபர்கள் மேலே குறிப்பிடப்பட்ட ........................ஆம் இலக்க ................................................ தேர்தல் மாவட்டத்திற்கு பாராளுமன்ற உறுப்பினர்களைத் தெரிவூ செய்யூம் தேர்தலுக்காக வேட்பாளர்களாக இத்தால் பெயர் குறித்து நியமிக்கப்படுகின்றது.
+                </p>
+            </div>
         </div>
-        <div class="row text-center">
-            <p>
-                The <input type="text" value='${partyName}' /> being a recognized political party /* the independent group of candidates of which the group leader is Mr. / Mrs. / Miss ................................................ hereby nominates the following persons as candidates for election as Members for the above-mentioned Electoral District No. ................................................
-            </p>
+        <div class="row">
+            <div class="col-12">
+                <p>
+                    The <input type="text" value='${partyName}' /> being a recognized political party /* the independent group of candidates of which the group leader is Mr. / Mrs. / Miss ................................................ hereby nominates the following persons as candidates for election as Members for the above-mentioned Electoral District No.................................................
+                </p>
+            </div>
         </div>
         <div class="row">
             <div class="col-12">
@@ -252,9 +259,9 @@ module.exports = (data) => {
 function generateCandidateAffirmationForm(data) {
     let forms = '';
     data.nominationData.candidateData.forEach(candidate => {
-        let candidateName = candidate.FULL_NAME;
+        let candidateName = candidate.PREFERRED_NAME;
         forms += `
-        <div class="container" style="font-size: 10px">
+        <div style="font-size: 9px">
         <table>
             <tr>
                 <td>
@@ -281,8 +288,6 @@ function generateCandidateAffirmationForm(data) {
                     <div class="row text-center">
                         <div class="col-12">
                             <p>
-                                <br/>
-                                <br/>
                                 <br/>
                                 ................................................<br/>
                                 අත්සන / ஒப்பம் / Signature
