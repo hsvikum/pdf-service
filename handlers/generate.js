@@ -46,6 +46,7 @@ module.exports = async function(req, res) {
         const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
     }
     const page = await global.browser.newPage();
+    page.setDefaultNavigationTimeout(0);
     if (req.body.url) {
         await page.goto(req.body.url);
     } else if (req.body.html) {
