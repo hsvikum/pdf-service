@@ -5,6 +5,7 @@ const baseURL = config('BASE_URL');
 const expiresIn = config('EXPIRES_IN');
 
 module.exports = async function(req, res) {
+    console.log(req.body)
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.status(422).json({
@@ -25,7 +26,7 @@ module.exports = async function(req, res) {
             left: 0
         }
     };
-    const availableOptions = ['scale', 'displayHeaderFooter', 'headerTemplate', 'footerTemplate', 'printBackground', 'landscape', 
+    const availableOptions = ['scale', 'displayHeaderFooter', 'headerTemplate', 'footerTemplate', 'printBackground', 'landscape',
     'pageRanges', 'format', 'width', 'height', 'margin.top', 'right', 'margin.bottom', 'margin.left', 'preferCSSPageSize'];
     const integerOptions = ['scale', 'width', 'height'];
     for (const option of availableOptions) {
@@ -51,7 +52,7 @@ module.exports = async function(req, res) {
         await page.goto(req.body.url);
     } else if (req.body.html) {
         await page.setContent(req.body.html);
-    } else if (req.body.file) { 
+    } else if (req.body.file) {
         const file = req.body.file;
         const htmlContent = require('../templates/'+file.template);
         await page.setContent(htmlContent(file));
