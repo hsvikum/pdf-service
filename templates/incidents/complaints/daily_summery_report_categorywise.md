@@ -1,8 +1,8 @@
 ## sample json
 ```
 {
-"file" : {
-	"template": "/incidents/complaints/daily_summery_report_categorywise.js",
+  "file": {
+    "template": "/incidents/complaints/daily_summery_report_categorywise.js",
     "date": "2020/05/18",
     "categories": [
       {
