@@ -78,13 +78,13 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-						 පැමිණිලි 24 පැය සාරාංශ වාර්තාව (ජනාධිපති පැමිණිලි කළමනාකරණ මධ්‍යස්ථානය)
+						 පැමිණිලි සතිපතා සංවෘත පැමිණිලි සාරාංශ වාර්තාව (ජනාධිපති පැමිණිලි කළමනාකරණ මධ්‍යස්ථානය)
 					</div>
 					<div class="font-small">
-						 முறைப்பாடுகள் 24 மணித்தியால சுருக்க அறிக்கை (ஜனாதிபதி முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையம்)
+						 முறைப்பாடுகள் வாராந்திர மூடிய புகார் சுருக்க அறிக்கை (ஜனாதிபதி முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையம்)
 					</div>
 					<div>
-						 Complaints 24 hour summery (Presidential Complaints Management
+						 Complaints weekly closed complaint summery (Presidential Complaints Management
 						Centre)
 					</div>
 					</th>
