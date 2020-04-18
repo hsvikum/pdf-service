@@ -3,7 +3,7 @@ const baseURL = config("BASE_URL");
 
 module.exports = data => {
   let date = data.date;
-  let categories = data.categories;
+  let categories = data.total_per_category;
   let otherComplaintCount = data.other;
   let totalComplaintCount = data.total;
 
@@ -68,11 +68,11 @@ module.exports = data => {
 						<div class="bold">Presidential Secretariat</div>
           </th>
           <th style="border: none; width: 150px">
-         <!--   <img
-              src="${baseURL}/assets/elections-logo.jpg"
-              alt="elections-logo"
-              style="height:100px;"
-            /> -->
+		  <img
+		  src="${baseURL}/assets/logo-sect.png"
+		  alt="elections-logo"
+		  style="height:100px;"
+		/> 
           </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">

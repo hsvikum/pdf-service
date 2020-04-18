@@ -2,6 +2,7 @@ const config = require("../../../config");
 const baseURL = config("BASE_URL");
 
 module.exports = data => {
+	console.log("data",data);
   let data2 = {
 	  "template": "/incidents/complaints/weeekly_closed_request_report_organizationwise.js",
 	  "date": "2020/05/18",
@@ -87,11 +88,11 @@ module.exports = data => {
 						<div class="bold">Presidential Secretariat</div>
           </th>
           <th style="border: none; width: 150px">
-         <!--   <img
-              src="${baseURL}/assets/elections-logo.jpg"
-              alt="elections-logo"
-              style="height:100px;"
-            /> -->
+		  <img
+		  src="${baseURL}/assets/logo-sect.png"
+		  alt="elections-logo"
+		  style="height:100px;"
+		/> 
           </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">

@@ -2,6 +2,7 @@ const config = require("../../../config");
 const baseURL = config("BASE_URL");
 
 module.exports = data => {
+	console.log("data",data);
   let date = data.date;
   let categories = data.categories;
   let otherComplaintCount = data.other;
@@ -68,11 +69,11 @@ module.exports = data => {
 						<div class="bold">Presidential Secretariat</div>
           </th>
           <th style="border: none; width: 150px">
-         <!--   <img
-              src="${baseURL}/assets/elections-logo.jpg"
-              alt="elections-logo"
-              style="height:100px;"
-            /> -->
+		  <img
+		  src="${baseURL}/assets/logo-sect.png"
+		  alt="elections-logo"
+		  style="height:100px;"
+		/> 
           </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">
@@ -120,14 +121,6 @@ module.exports = data => {
 
   template += generateCategoryRows(categories);
   template += `
-				<tr>
-					<th>
-						<div>වෙනත්</div>
-						<div class="font-small">வேறு</div>
-					</th>
-					<td></td>
-					<td class="text-center">${otherComplaintCount}</td>
-				</tr>
 				<tfoot>
 					<tr class="grey text-center">
 						<td></td>
