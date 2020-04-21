@@ -2,7 +2,8 @@ const config = require("../../../config");
 const baseURL = config("BASE_URL");
 
 module.exports = data => {
-  let date = data.date;
+  let StartDate = data.StartDate;
+  let EndDate = data.EndDate;
   let categories = data.categories;
   let otherComplaintCount = data.other;
   let totalComplaintCount = data.total;
@@ -90,8 +91,10 @@ module.exports = data => {
 				</tr>
 				<tr>
 					<th colspan="3">
-					<span>දිනය/திகதி/Date</span>
-					<span>${date}</span>
+					<span>දිනය/திகதி/Date </span>
+					<span> ${StartDate}</span>
+					<span> සිට/இருந்து/From </span>
+					<span> ${EndDate}</span>
 					</th>
 				</tr>
 				<!--<tr class="grey">
