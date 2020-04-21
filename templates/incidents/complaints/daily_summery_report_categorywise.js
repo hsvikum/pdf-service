@@ -79,14 +79,13 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-						 පැමිණිලි 24 පැය සාරාංශ වාර්තාව (ජනාධිපති පැමිණිලි කළමනාකරණ මධ්‍යස්ථානය)
+					කාණ්ඩය අනුව දෛනික සාරාංශ වාර්තාව
 					</div>
 					<div class="font-small">
-						 முறைப்பாடுகள் 24 மணித்தியால சுருக்க அறிக்கை (ஜனாதிபதி முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையம்)
+					வகையின் தினசரி சுருக்க அறிக்கை
 					</div>
 					<div>
-						 Complaints 24 hour summery (Presidential Complaints Management
-						Centre)
+					Daily Summary report by Category
 					</div>
 					</th>
 				</tr>
@@ -96,26 +95,26 @@ module.exports = data => {
 					<span>${date}</span>
 					</th>
 				</tr>
-				<tr class="grey">
+				<!--<tr class="grey">
 					<th colspan="3">
 					<span>පැමිණිලි වර්ගීකරණය / முறைப்பாட்டு வகைப்பாடு / Complaint classification</span>
 					</th>
-				</tr>
+				</tr>-->
 				<tr class="grey">
 					<th>
-						<div>පැමිණිලි වර්ගය</div>
-						<div class="font-small">முறைப்பாட்டு வகை</div>
-						<div>Complaints Category</div>
+						<div>කාණ්ඩය</div>
+						<div class="font-small">வகை</div>
+						<div>Category</div>
 					</th>
 					<th>
-						<div>පැමිණිලි අනු වර්ගය</div>
-						<div class="font-small">முறைப்பாட்டு உப வகை</div>
-						<div>Complaints Sub-Category</div>
+						<div>අනු කාණ්ඩය</div>
+						<div class="font-small">உப வகை</div>
+						<div>Subcategory</div>
 					</th>
 					<th>
 						<div>සංඛ්‍යාව</div>
 						<div class="font-small">எண்ணிக்கை</div>
-						<div>Counts</div>
+						<div>No</div>
 					</th>
 				</tr>`;
 
