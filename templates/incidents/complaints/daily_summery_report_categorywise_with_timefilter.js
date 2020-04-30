@@ -124,11 +124,17 @@ module.exports = data => {
   template += `
 				<tfoot>
 					<tr class="grey text-center">
-						<td></td>
-						<td>
+						<th colspan="2">
 							<span>එකතුව / மொத்தம் / Total </span>
-						</td>
-						<td class="text-center">${totalComplaintCount}</td>
+						</th>
+						<th class="text-center">${totalComplaintCount}</th>
+					</tr>
+					<tr class="grey text-center">
+						<th colspan="2">
+							<span>විවෘත ගැටළු ගණන / திறந்த சிக்கல்கள் எண்ணிக்கை / No. of issues open </span>
+						</th>
+						<th class="text-center">${totalComplaintCount}</th>
+					</tr>
 					</tr>
 				</tfoot>
 			</table>

@@ -79,13 +79,13 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-					දෛනික සාරාංශ වාර්තාව - කාණ්ඩය අනුව ලැබෙන මුළු ඉල්ලීම් ගණන
+					දෛනික සාරාංශ වාර්තාව - සංවිධානය විසින් වසා ඇති ඉල්ලීම් ගණන
 					</div>
 					<div class="font-small">
-					தினசரி சுருக்க அறிக்கை - வகை மூலம் பெறப்பட்ட மொத்த கோரிக்கைகளின் எண்ணிக்கை
+					தினசரி சுருக்க அறிக்கை - நிறுவனத்தால் மூடப்பட்ட கோரிக்கைகளின் எண்ணிக்கை
 					</div>
 					<div>
-					Daily Summary Report - Total number of requests received by category
+					Daily Summary Report - No. of requests closed by organization
 					</div>
 					</th>
 				</tr>
@@ -102,14 +102,14 @@ module.exports = data => {
 				</tr>-->
 				<tr class="grey">
 					<th>
-						<div>කාණ්ඩය</div>
+						<div>සංවිධානය</div>
 						<div class="font-small">வகை</div>
-						<div>Category</div>
+						<div>Organization</div>
 					</th>
 					<th>
-						<div>අනු කාණ්ඩය</div>
+						<div>කොට්ඨාශය</div>
 						<div class="font-small">உப வகை</div>
-						<div>Subcategory</div>
+						<div>Division</div>
 					</th>
 					<th>
 						<div>සංඛ්‍යාව</div>

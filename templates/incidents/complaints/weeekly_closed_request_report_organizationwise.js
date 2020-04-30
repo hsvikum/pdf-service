@@ -5,7 +5,8 @@ module.exports = data => {
 	console.log("data",data);
   let data2 = {
 	  "template": "/incidents/complaints/weeekly_closed_request_report_organizationwise.js",
-	  "date": "2020/05/18",
+	  "StartDate": "2020/05/18",
+	  "EndDate": "2020/05/18",
 	  "organizations": [
 		{
 		  "organizationNameSinhala": "ආරක්ෂක අමාත්යාංශය",
@@ -22,7 +23,8 @@ module.exports = data => {
 	  "total": "33"
   }
 
-  let date = data2.date;
+  let StartDate = data2.StartDate;
+  let EndDate = data2.EndDate;
   let organizations = data2.organizations;
   let otherComplaintCount = data2.other;
   let totalComplaintCount = data2.total;
@@ -98,28 +100,29 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-						 පැමිණිලි සතිපතා සංවෘත පැමිණිලි සාරාංශ වාර්තාව (ජනාධිපති පැමිණිලි කළමනාකරණ මධ්‍යස්ථානය)
+						සතිපතා සාරාංශ වාර්තාව - සංවිධානය විසින් වසා ඇති ඉල්ලීම් ගණන
 					</div>
 					<div class="font-small">
-						 முறைப்பாடுகள் வாராந்திர மூடிய புகார் சுருக்க அறிக்கை (ஜனாதிபதி முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையம்)
+						வாராந்திர சுருக்க அறிக்கை - நிறுவனத்தால் மூடப்பட்ட கோரிக்கைகளின் எண்ணிக்கை
 					</div>
 					<div>
-						 Complaints weekly closed complaint summery (Presidential Complaints Management
-						Centre)
+						Weekly Summary Report - No. of requests closed by organization
 					</div>
 					</th>
 				</tr>
 				<tr>
 					<th colspan="3">
-					<span>දිනය/திகதி/Date</span>
-					<span>${date}</span>
+					<span>දිනය/திகதி/Date </span>
+					<span> ${StartDate}</span>
+					<span> සිට/இருந்து/From </span>
+					<span> ${EndDate}</span>
 					</th>
 				</tr>
-				<tr class="grey">
+				<!--<tr class="grey">
 					<th colspan="3">
 					<span>පැමිණිලි වර්ගීකරණය / முறைப்பாட்டு வகைப்பாடு / Complaint classification</span>
 					</th>
-				</tr>
+				</tr>-->
 				<tr class="grey">
 					<th colspan="2">
 						<div>ආයතනය</div>
@@ -144,11 +147,18 @@ module.exports = data => {
 				</tr>
 				<tfoot>
 					<tr class="grey text-center">
-						<td colspan="2">
+						<th colspan="2">
 							<span>එකතුව / மொத்தம் / Total </span>
-						</td>
-						<td class="text-center">${totalComplaintCount}</td>
+						</th>
+						<th class="text-center">${totalComplaintCount}</th>
 					</tr>
+					<tr class="grey text-center">
+						<th colspan="2">
+							<span>විවෘත ගැටළු ගණන / திறந்த சிக்கல்கள் எண்ணிக்கை / No. of issues open </span>
+						</th>
+						<th class="text-center">${totalComplaintCount}</th>
+					</tr>
+				</tr>
 				</tfoot>
 			</table>
 		</body>

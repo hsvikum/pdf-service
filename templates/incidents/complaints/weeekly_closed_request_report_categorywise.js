@@ -79,13 +79,13 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-						  සතිපතා සාරාංශ වාර්තාව - කාණ්ඩය අනුව සංවෘත පැමිණිලි
+						  සතිපතා සාරාංශ වාර්තාව - කාණ්ඩය මගින් වසා ඇති ඉල්ලීම් ගණන
 					</div>
 					<div class="font-small">
-                      வாராந்திர சுருக்க அறிக்கை - வகை வாரியாக மூடப்பட்ட கோரிக்கைகள் 
+                      வாராந்திர சுருக்க அறிக்கை - வகையால் மூடப்பட்ட கோரிக்கைகளின் எண்ணிக்கை
 					</div>
 					<div>
-					Weekly Summary Report - Closed Requests by Category
+					Weekly Summary Report - No. of requests closed by Category
 					</div>
 					</th>
 				</tr>
@@ -123,13 +123,19 @@ module.exports = data => {
   template += generateCategoryRows(categories);
   template += `
 				<tfoot>
-					<tr class="grey text-center">
-						<td></td>
-						<td>
-							<span>එකතුව / மொத்தம் / Total </span>
-						</td>
-						<td class="text-center">${totalComplaintCount}</td>
-					</tr>
+				<tr class="grey text-center">
+					<th colspan="2">
+						<span>එකතුව / மொத்தம் / Total </span>
+					</th>
+					<th class="text-center">${totalComplaintCount}</th>
+				</tr>
+				<tr class="grey text-center">
+					<th colspan="2">
+						<span>විවෘත ගැටළු ගණන / திறந்த சிக்கல்கள் எண்ணிக்கை / No. of issues open </span>
+					</th>
+					<th class="text-center">${totalComplaintCount}</th>
+				</tr>
+				</tr>
 				</tfoot>
 			</table>
 		</body>
