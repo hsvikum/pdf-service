@@ -7,7 +7,8 @@ module.exports = data => {
   let categories = data.categories;
   let otherComplaintCount = data.other;
   let totalComplaintCount = data.total;
-
+  let totalOpenedCount = data.totalOpenedCount;
+  
   let template = `
 		<!DOCTYPE html>
 		<html>
@@ -133,7 +134,7 @@ module.exports = data => {
 					<th colspan="2">
 						<span>විවෘත ගැටළු ගණන / திறந்த சிக்கல்கள் எண்ணிக்கை / No. of issues open </span>
 					</th>
-					<th class="text-center">${totalComplaintCount}</th>
+					<th class="text-center">${totalOpenedCount}</th>
 				</tr>
 				</tr>
 				</tfoot>

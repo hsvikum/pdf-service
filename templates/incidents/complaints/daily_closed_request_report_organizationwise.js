@@ -3,11 +3,31 @@ const baseURL = config("BASE_URL");
 
 module.exports = data => {
 	console.log("data",data);
-  let date = data.date;
-  let categories = data.categories;
-  let otherComplaintCount = data.other;
-  let totalComplaintCount = data.total;
-  let totalOpenedCount = data.totalOpenedCount;
+  let data2 = {
+	  "template": "/incidents/complaints/weeekly_closed_request_report_organizationwise.js",
+	  "date": "2020/05/18",
+	  "organizations": [
+		{
+		  "organizationNameSinhala": "ආරක්ෂක අමාත්යාංශය",
+		  "organizationNameTamil": "பாதுகாப்பு அமைச்சகம்",
+		  "count": 5
+		},
+		{
+		  "organizationNameSinhala": "විදේශ කටයුතු අමාත්යංශය",
+		  "organizationNameTamil": "வெளிநாட்டு அலுவல்கள் அமைச்சு",
+		  "count": 5
+		}
+	  ],
+	  "other": "23",
+	  "total": "33",
+	  "totalOpenedCount": "123"
+  }
+
+  let date = data2.date;
+  let organizations = data2.organizations;
+  let otherComplaintCount = data2.other;
+  let totalComplaintCount = data2.total;
+  let totalOpenedCount = data2.totalOpenedCount;
 
   let template = `
 		<!DOCTYPE html>
@@ -80,13 +100,13 @@ module.exports = data => {
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
 					<div>
-					දෛනික සාරාංශ වාර්තාව - කාණ්ඩය අනුව ලැබෙන මුළු ඉල්ලීම් ගණන
+					   දෛනික සාරාංශ වාර්තාව - සංවිධානය විසින් වසා ඇති ඉල්ලීම් ගණන
 					</div>
 					<div class="font-small">
-					தினசரி சுருக்க அறிக்கை - வகை மூலம் பெறப்பட்ட மொத்த கோரிக்கைகளின் எண்ணிக்கை
+					தினசரி சுருக்க அறிக்கை - நிறுவனத்தால் மூடப்பட்ட கோரிக்கைகளின் எண்ணிக்கை
 					</div>
 					<div>
-					Daily Summary Report - Total number of requests received by category
+						Daily Summary Report - No. of requests closed by organization
 					</div>
 					</th>
 				</tr>
@@ -102,25 +122,27 @@ module.exports = data => {
 					</th>
 				</tr>-->
 				<tr class="grey">
-					<th>
-						<div>කාණ්ඩය</div>
-						<div class="font-small">வகை</div>
-						<div>Category</div>
-					</th>
-					<th>
-						<div>අනු කාණ්ඩය</div>
-						<div class="font-small">உப வகை</div>
-						<div>Subcategory</div>
+					<th colspan="2">
+						<div>ආයතනය</div>
+						<div class="font-small">முறைப்பாட்டு வகை</div>
+						<div>Organization</div>
 					</th>
 					<th>
 						<div>සංඛ්‍යාව</div>
 						<div class="font-small">எண்ணிக்கை</div>
-						<div>No</div>
+						<div>Counts</div>
 					</th>
 				</tr>`;
 
-  template += generateCategoryRows(categories);
+  template += generateOrganizationRows(organizations);
   template += `
+				<tr>
+					<td colspan="2">
+						<div>වෙනත්</div>
+						<div class="font-small">வேறு</div>
+					</td>
+					<td class="text-center">${otherComplaintCount}</td>
+				</tr>
 				<tfoot>
 					<tr class="grey text-center">
 						<th colspan="2">
@@ -134,7 +156,7 @@ module.exports = data => {
 						</th>
 						<th class="text-center">${totalOpenedCount}</th>
 					</tr>
-					</tr>
+				</tr>
 				</tfoot>
 			</table>
 		</body>
@@ -143,38 +165,21 @@ module.exports = data => {
   return template;
 };
 
-function generateCategoryRows(categories = []) {
+function generateOrganizationRows(organizations = []) {
   let rowCollection = "";
 
-  for (let i = 0; i < categories.length; i++) {
+  for (let i = 0; i < organizations.length; i++) {
     let row = "";
 
-    // check if sub categories exist
-    if (categories[i].subCategories && categories[i].subCategories.length > 0) {
-      let subCategories = categories[i].subCategories;
-
       row = `<tr>
-					<th rowspan=${subCategories.length}>
-						<div>${categories[i].categoryNameSinhala}</div>
-						<div class="font-small">${categories[i].categoryNameTamil}</div>
-					</th>`;
+					<td colspan="2">
+						<div>${organizations[i].organizationNameSinhala}</div>
+						<div class="font-small">${organizations[i].organizationNameTamil}</div>
+					</td>`;
 
-      for (let j = 0; j < subCategories.length; j++) {
-        if (j == 0) {
           row += `
-                    <td>${subCategories[j].name}</td>
-                    <td class="text-center">${subCategories[j].count}</td>
+                    <td class="text-center">${organizations[i].count}</td>
                 </tr>`;
-        } else {
-          row += `<tr>
-                            <td>${subCategories[j].name}</td>
-                            <td class="text-center">${subCategories[j].count}</td>
-                        </tr>`;
-        }
-      }
-    } else {
-      break;
-    }
 
     rowCollection += row;
   }
