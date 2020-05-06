@@ -20,14 +20,17 @@ module.exports = async function(req, res) {
         path: `static/exports/${randomID}.pdf`,
         format: 'A4',
         margin: {
-            top: 0,
+            top: 20,
             right: 0,
-            bottom: 0,
+            bottom: 40,
             left: 0
-        }
+        },
+        displayHeaderFooter: true,
+        footerTemplate: "<div style=\"text-align: right;width: 297mm;font-size: 8px; z-index:1000;\"><span style=\"margin-right: 1cm\"><span class=\"pageNumber\"></span> of <span class=\"totalPages\"></span></span></div>"
     };
     const availableOptions = ['scale', 'displayHeaderFooter', 'headerTemplate', 'footerTemplate', 'printBackground', 'landscape',
-    'pageRanges', 'format', 'width', 'height', 'margin.top', 'right', 'margin.bottom', 'margin.left', 'preferCSSPageSize'];
+    'pageRanges', 'format', 'width', 'height', 'margin.top', 'right', 'margin.bottom', 'margin.left', 'preferCSSPageSize', 'pageNumber',
+    'totalPages'];
     const integerOptions = ['scale', 'width', 'height'];
     for (const option of availableOptions) {
         if (req.body[option] && !option.includes('margin')) {
