@@ -23,11 +23,12 @@ module.exports = data => {
 	  "total": "33"
   }
 
-  let StartDate = data2.StartDate;
-  let EndDate = data2.EndDate;
-  let organizations = data2.organizations;
+  let StartDate = data.StartDate;
+  let EndDate = data.EndDate;
+  let organizations = data.organizations;
   let otherComplaintCount = data2.other;
-  let totalComplaintCount = data2.total;
+  let totalComplaintCount = data.total;
+  let totalOpenedCount = data.totalOpenedCount;
 
   let template = `
 		<!DOCTYPE html>
@@ -138,13 +139,13 @@ module.exports = data => {
 
   template += generateOrganizationRows(organizations);
   template += `
-				<tr>
+				<!--<tr>
 					<td colspan="2">
 						<div>වෙනත්</div>
 						<div class="font-small">வேறு</div>
 					</td>
 					<td class="text-center">${otherComplaintCount}</td>
-				</tr>
+				</tr>-->
 				<tfoot>
 					<tr class="grey text-center">
 						<th colspan="2">
@@ -156,7 +157,7 @@ module.exports = data => {
 						<th colspan="2">
 							<span>විවෘත ගැටළු ගණන / திறந்த சிக்கல்கள் எண்ணிக்கை / No. of issues open </span>
 						</th>
-						<th class="text-center">${totalComplaintCount}</th>
+						<th class="text-center">${totalOpenedCount}</th>
 					</tr>
 				</tr>
 				</tfoot>

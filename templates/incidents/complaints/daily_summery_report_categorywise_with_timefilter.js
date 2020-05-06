@@ -2,6 +2,8 @@ const config = require("../../../config");
 const baseURL = config("BASE_URL");
 
 module.exports = data => {
+	console.log("data",data);
+  let date = data.date;
   let StartDate = data.StartDate;
   let EndDate = data.EndDate;
   let categories = data.categories;
@@ -70,11 +72,11 @@ module.exports = data => {
 						<div class="bold">Presidential Secretariat</div>
           </th>
           <th style="border: none; width: 150px">
-		  <img
-		  src="${baseURL}/assets/logo-sect.png"
-		  alt="elections-logo"
-		  style="height:100px;"
-		/> 
+					  <img
+					  src="${baseURL}/assets/logo-sect.png"
+					  alt="elections-logo"
+					  style="height:100px;"
+						/>
           </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">
@@ -101,8 +103,8 @@ module.exports = data => {
 				<!--<tr class="grey">
 					<th colspan="3">
 					<span>පැමිණිලි වර්ගීකරණය / முறைப்பாட்டு வகைப்பாடு / Complaint classification</span>
-					</th>-->
-				</tr>
+					</th>
+				</tr>-->
 				<tr class="grey">
 					<th>
 						<div>කාණ්ඩය</div>
@@ -121,10 +123,72 @@ module.exports = data => {
 					</th>
 				</tr>`;
 
-  template += generateCategoryRows(categories);
-  template += `
-				<tfoot>
-					<tr class="grey text-center">
+  template += generateCategoryRows(categories, 0, 0, 3, 6);
+  template += `</table>
+			<br/><br/><br/><br/>
+			<table>
+					<tr class="grey">
+						<th style="width: 150px;"">
+							<div>කාණ්ඩය</div>
+							<div class="font-small">வகை</div>
+							<div>Category</div>
+						</th>
+						<th>
+							<div>අනු කාණ්ඩය</div>
+							<div class="font-small">உப வகை</div>
+							<div>Subcategory</div>
+						</th>
+						<th style="width: 200px;">
+							<div>සංඛ්‍යාව</div>
+							<div class="font-small">எண்ணிக்கை</div>
+							<div>No</div>
+						</th>
+					</tr>`;
+
+template += generateCategoryRows(categories, 3, 0, 7, 3);
+template += `</table>
+		<br/><br/><br/><br/><br/>
+		<table>
+				<tr class="grey">
+					<th style="width: 150px;"">
+						<div>කාණ්ඩය</div>
+						<div class="font-small">வகை</div>
+						<div>Category</div>
+					</th>
+					<th>
+						<div>අනු කාණ්ඩය</div>
+						<div class="font-small">உப வகை</div>
+						<div>Subcategory</div>
+					</th>
+					<th style="width: 200px;">
+						<div>සංඛ්‍යාව</div>
+						<div class="font-small">எண்ணிக்கை</div>
+						<div>No</div>
+					</th>
+				</tr>`;
+template += generateCategoryRows(categories, 8, 0, 13, 4);
+template += `</table>
+		<br/><br/>
+		<table>
+				<tr class="grey">
+					<th style="width: 150px;"">
+						<div>කාණ්ඩය</div>
+						<div class="font-small">வகை</div>
+						<div>Category</div>
+					</th>
+					<th>
+						<div>අනු කාණ්ඩය</div>
+						<div class="font-small">உப வகை</div>
+						<div>Subcategory</div>
+					</th>
+					<th style="width: 200px;">
+						<div>සංඛ්‍යාව</div>
+						<div class="font-small">எண்ணிக்கை</div>
+						<div>No</div>
+					</th>
+				</tr>`;
+template += generateCategoryRows(categories, 13, 0, 16, 4);
+template += `<tr class="grey text-center">
 						<th colspan="2">
 							<span>එකතුව / மொத்தம் / Total </span>
 						</th>
@@ -136,8 +200,7 @@ module.exports = data => {
 						</th>
 						<th class="text-center">${totalOpenedCount}</th>
 					</tr>
-					</tr>
-				</tfoot>
+
 			</table>
 		</body>
 	</html>`;
@@ -145,35 +208,58 @@ module.exports = data => {
   return template;
 };
 
-function generateCategoryRows(categories = []) {
+function generateCategoryRows(categories = [], startCat, startSubCat, endCat, endSubCat) {
   let rowCollection = "";
 
-  for (let i = 0; i < categories.length; i++) {
+  for (let i = startCat; i < endCat; i++) {
     let row = "";
 
     // check if sub categories exist
     if (categories[i].subCategories && categories[i].subCategories.length > 0) {
       let subCategories = categories[i].subCategories;
 
-      row = `<tr>
-					<th rowspan=${subCategories.length}>
-						<div>${categories[i].categoryNameSinhala}</div>
-						<div class="font-small">${categories[i].categoryNameTamil}</div>
-					</th>`;
+			if (i == endCat-1) {
+				row = `<tr>
+						<th rowspan=${endSubCat}>
+							<div>${categories[i].categoryNameSinhala}</div>
+							<div class="font-small">${categories[i].categoryNameTamil}</div>
+						</th>`;
 
-      for (let j = 0; j < subCategories.length; j++) {
-        if (j == 0) {
-          row += `
-                    <td>${subCategories[j].name}</td>
-                    <td class="text-center">${subCategories[j].count}</td>
-                </tr>`;
-        } else {
-          row += `<tr>
-                            <td>${subCategories[j].name}</td>
-                            <td class="text-center">${subCategories[j].count}</td>
-                        </tr>`;
-        }
-      }
+				for (let j = 0; j < endSubCat; j++) {
+	        if (j == 0) {
+	          row += `
+	                    <td>${subCategories[j].name}</td>
+	                    <td class="text-center">${subCategories[j].count}</td>
+	                </tr>`;
+	        } else {
+	          row += `<tr>
+	                            <td>${subCategories[j].name}</td>
+	                            <td class="text-center">${subCategories[j].count}</td>
+	                        </tr>`;
+	        }
+	      }
+			} else {
+				row = `<tr>
+						<th rowspan=${subCategories.length}>
+							<div>${categories[i].categoryNameSinhala}</div>
+							<div class="font-small">${categories[i].categoryNameTamil}</div>
+						</th>`;
+
+				for (let j = 0; j < subCategories.length; j++) {
+	        if (j == 0) {
+	          row += `
+	                    <td>${subCategories[j].name}</td>
+	                    <td class="text-center">${subCategories[j].count}</td>
+	                </tr>`;
+	        } else {
+	          row += `<tr>
+	                            <td>${subCategories[j].name}</td>
+	                            <td class="text-center">${subCategories[j].count}</td>
+	                        </tr>`;
+	        }
+	      }
+			}
+
     } else {
       break;
     }
