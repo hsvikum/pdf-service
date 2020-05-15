@@ -17,6 +17,11 @@ module.exports = data => {
 		  "organizationNameSinhala": "විදේශ කටයුතු අමාත්යංශය",
 		  "organizationNameTamil": "வெளிநாட்டு அலுவல்கள் அமைச்சு",
 		  "count": 5
+		},
+		{
+		  "organizationNameSinhala": "ආරක්ෂක අමාත්යාංශය",
+		  "organizationNameTamil": "பாதுகாப்பு அமைச்சகம்",
+		  "count": 5
 		}
 	  ],
 	  "other": "23",
@@ -95,7 +100,7 @@ module.exports = data => {
 		  src="${baseURL}/assets/logo-sect.png"
 		  alt="elections-logo"
 		  style="height:100px;"
-		/> 
+		/>
           </th>
 				</tr>
 				<tr class="grey" style="height: 70px;">
@@ -136,8 +141,7 @@ module.exports = data => {
 						<div>Counts</div>
 					</th>
 				</tr>`;
-
-  template += generateOrganizationRows(organizations);
+	template += generateOrganizationRows(organizations);
   template += `
 				<!--<tr>
 					<td colspan="2">
@@ -160,7 +164,6 @@ module.exports = data => {
 						<th class="text-center">${totalOpenedCount}</th>
 					</tr>
 				</tr>
-				</tfoot>
 			</table>
 		</body>
 	</html>`;
@@ -174,18 +177,50 @@ function generateOrganizationRows(organizations = []) {
   for (let i = 0; i < organizations.length; i++) {
     let row = "";
 
-      row = `<tr>
-					<td colspan="2">
-						<div>${organizations[i].organizationNameSinhala}</div>
-						<div class="font-small">${organizations[i].organizationNameTamil}</div>
-					</td>`;
+			if (i == 18) {
+				let newTable = moveToNextPage();
+				let firstRow = `<tr>
+						<td colspan="2">
+							<div>${organizations[i].organizationNameSinhala}</div>
+							<div class="font-small">${organizations[i].organizationNameTamil}</div>
+						</td>
+						<td class="text-center">${organizations[i].count}</td>
+	          </tr>`;
 
-          row += `
-                    <td class="text-center">${organizations[i].count}</td>
-                </tr>`;
+				row += newTable;
+				row += firstRow;
+			} else {
+	      row = `<tr>
+						<td colspan="2">
+							<div>${organizations[i].organizationNameSinhala}</div>
+							<div class="font-small">${organizations[i].organizationNameTamil}</div>
+						</td>
+						<td class="text-center">${organizations[i].count}</td>
+	          </tr>`;
+			}
 
     rowCollection += row;
   }
 
   return rowCollection;
+}
+
+function moveToNextPage() {
+	let newTable =`</table>
+			<br/><br/>
+			<table>
+					<tr class="grey">
+						<th colspan="2">
+							<div>ආයතනය</div>
+							<div class="font-small">முறைப்பாட்டு வகை</div>
+							<div>Organization</div>
+						</th>
+						<th style="width: 200px">
+							<div>සංඛ්‍යාව</div>
+							<div class="font-small">எண்ணிக்கை</div>
+							<div>Counts</div>
+						</th>
+					</tr>`;
+
+	return newTable;
 }
