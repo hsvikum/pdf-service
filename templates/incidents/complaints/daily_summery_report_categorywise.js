@@ -218,7 +218,7 @@ console.log(subCategories);
 				row = `<tr>
 						<th rowspan=${endSubCat}>
 							<div>${categories[i].categoryNameEnglish}</div>
-							<div>${categories[i].categoryNameSinhala}</div>
+							<div class="font-small">${categories[i].categoryNameSinhala}</div>
 						</th>`;
 
 				for (let j = 0; j < endSubCat; j++) {
@@ -238,7 +238,7 @@ console.log(subCategories);
 				row = `<tr>
 						<th rowspan=${subCategories.length}>
 							<div>${categories[i].categoryNameEnglish}</div>
-							<div>${categories[i].categoryNameSinhala}</div>
+							<div class="font-small">${categories[i].categoryNameSinhala}</div>
 						</th>`;
 
 				for (let j = 0; j < subCategories.length; j++) {
