@@ -28,6 +28,7 @@ module.exports = data => {
   let otherComplaintCount = data2.other;
   let totalComplaintCount = data.total;
   let totalOpenedCount = data.totalOpenedCount;
+  let language = data.language;
 
   let template = `
 		<!DOCTYPE html>
@@ -134,7 +135,7 @@ module.exports = data => {
 					</th>
 				</tr>`;
 
-  template += generateOrganizationRows(organizations);
+  template += generateOrganizationRows(organizations,language);
   template += `
 				<!--<tr>
 					<td colspan="2">
@@ -165,16 +166,15 @@ module.exports = data => {
   return template;
 };
 
-function generateOrganizationRows(organizations = []) {
+function generateOrganizationRows(organizations = [],language) {
   let rowCollection = "";
-
+  if(language == '"en"'){
   for (let i = 0; i < organizations.length; i++) {
     let row = "";
 
       row = `<tr>
 					<td colspan="2">
-						<div>${organizations[i].organizationNameSinhala}</div>
-						<div class="font-small">${organizations[i].organizationNameTamil}</div>
+						<div>${organizations[i].organizationNameEnglish}</div>
 					</td>`;
 
           row += `
@@ -183,6 +183,37 @@ function generateOrganizationRows(organizations = []) {
 
     rowCollection += row;
   }
+}else if (language == '"si"'){
+	for (let i = 0; i < organizations.length; i++) {
+		let row = "";
+	
+		  row = `<tr>
+						<td colspan="2">
+							<div>${organizations[i].organizationNameSinhala}</div>
+						</td>`;
+	
+			  row += `
+						<td class="text-center">${organizations[i].count}</td>
+					</tr>`;
+	
+		rowCollection += row;
+	  }
+}else if (language == '"ta"'){
+	for (let i = 0; i < organizations.length; i++) {
+		let row = "";
+	
+		  row = `<tr>
+						<td colspan="2">
+							<div>${organizations[i].organizationNameTamil}</div>
+						</td>`;
+	
+			  row += `
+						<td class="text-center">${organizations[i].count}</td>
+					</tr>`;
+	
+		rowCollection += row;
+	  }
+}
 
   return rowCollection;
 }

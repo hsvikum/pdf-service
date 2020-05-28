@@ -10,6 +10,7 @@ module.exports = data => {
   let otherComplaintCount = data.other;
   let totalComplaintCount = data.total;
   let totalOpenedCount = data.totalOpenedCount;
+  let language = data.language;
 
   let template = `
 		<!DOCTYPE html>
@@ -123,7 +124,7 @@ module.exports = data => {
 					</th>
 				</tr>`;
 
-  template += generateCategoryRows(categories, 0, 0, 3, 6);
+  template += generateCategoryRows(categories, 0, 0, 3, 6, language);
   template += `</table>
 			<br/><br/><br/><br/>
 			<table>
@@ -145,7 +146,7 @@ module.exports = data => {
 						</th>
 					</tr>`;
 
-template += generateCategoryRows(categories, 3, 0, 7, 3);
+template += generateCategoryRows(categories, 3, 0, 7, 3, language);
 template += `</table>
 		<br/><br/><br/><br/><br/>
 		<table>
@@ -166,7 +167,7 @@ template += `</table>
 						<div>No</div>
 					</th>
 				</tr>`;
-template += generateCategoryRows(categories, 8, 0, 13, 4);
+template += generateCategoryRows(categories, 8, 0, 13, 4, language);
 template += `</table>
 		<br/><br/>
 		<table>
@@ -187,7 +188,7 @@ template += `</table>
 						<div>No</div>
 					</th>
 				</tr>`;
-template += generateCategoryRows(categories, 13, 0, 16, 4);
+template += generateCategoryRows(categories, 13, 0, 16, 4, language);
 template += `<tr class="grey text-center">
 						<th colspan="2">
 							<span>එකතුව / மொத்தம் / Total </span>
@@ -208,9 +209,10 @@ template += `<tr class="grey text-center">
   return template;
 };
 
-function generateCategoryRows(categories = [], startCat, startSubCat, endCat, endSubCat) {
+function generateCategoryRows(categories = [], startCat, startSubCat, endCat, endSubCat, language) {
   let rowCollection = "";
 
+  if(language == '"en"'){
   for (let i = startCat; i < endCat; i++) {
     let row = "";
 
@@ -221,19 +223,19 @@ function generateCategoryRows(categories = [], startCat, startSubCat, endCat, en
 			if (i == endCat-1) {
 				row = `<tr>
 						<th rowspan=${endSubCat}>
+							<div>${categories[i].categoryNameEnglish}</div>
 							<div>${categories[i].categoryNameSinhala}</div>
-							<div class="font-small">${categories[i].categoryNameTamil}</div>
 						</th>`;
 
 				for (let j = 0; j < endSubCat; j++) {
 	        if (j == 0) {
 	          row += `
-	                    <td>${subCategories[j].name}</td>
+	                    <td>${subCategories[j].nameEnglish}</td>
 	                    <td class="text-center">${subCategories[j].count}</td>
 	                </tr>`;
 	        } else {
 	          row += `<tr>
-	                            <td>${subCategories[j].name}</td>
+	                            <td>${subCategories[j].nameEnglish}</td>
 	                            <td class="text-center">${subCategories[j].count}</td>
 	                        </tr>`;
 	        }
@@ -241,19 +243,19 @@ function generateCategoryRows(categories = [], startCat, startSubCat, endCat, en
 			} else {
 				row = `<tr>
 						<th rowspan=${subCategories.length}>
+							<div>${categories[i].categoryNameEnglish}</div>
 							<div>${categories[i].categoryNameSinhala}</div>
-							<div class="font-small">${categories[i].categoryNameTamil}</div>
 						</th>`;
 
 				for (let j = 0; j < subCategories.length; j++) {
 	        if (j == 0) {
 	          row += `
-	                    <td>${subCategories[j].name}</td>
+	                    <td>${subCategories[j].nameEnglish}</td>
 	                    <td class="text-center">${subCategories[j].count}</td>
 	                </tr>`;
 	        } else {
 	          row += `<tr>
-	                            <td>${subCategories[j].name}</td>
+	                            <td>${subCategories[j].nameEnglish}</td>
 	                            <td class="text-center">${subCategories[j].count}</td>
 	                        </tr>`;
 	        }
@@ -266,6 +268,119 @@ function generateCategoryRows(categories = [], startCat, startSubCat, endCat, en
 
     rowCollection += row;
   }
+}else if (language == '"si"'){
+	for (let i = startCat; i < endCat; i++) {
+		let row = "";
+	
+		// check if sub categories exist
+		if (categories[i].subCategories && categories[i].subCategories.length > 0) {
+		  let subCategories = categories[i].subCategories;
+	
+				if (i == endCat-1) {
+					row = `<tr>
+							<th rowspan=${endSubCat}>
+								<div>${categories[i].categoryNameSinhala}</div>
+								<div>${categories[i].categoryNameEnglish}</div>
+							</th>`;
+	
+					for (let j = 0; j < endSubCat; j++) {
+				if (j == 0) {
+				  row += `
+							<td>${subCategories[j].nameSinhala}</td>
+							<td class="text-center">${subCategories[j].count}</td>
+						</tr>`;
+				} else {
+				  row += `<tr>
+									<td>${subCategories[j].nameSinhala}</td>
+									<td class="text-center">${subCategories[j].count}</td>
+								</tr>`;
+				}
+			  }
+				} else {
+					row = `<tr>
+							<th rowspan=${subCategories.length}>
+								<div>${categories[i].categoryNameSinhala}</div>
+								<div>${categories[i].categoryNameEnglish}</div>
+							</th>`;
+	
+					for (let j = 0; j < subCategories.length; j++) {
+				if (j == 0) {
+				  row += `
+							<td>${subCategories[j].nameSinhala}</td>
+							<td class="text-center">${subCategories[j].count}</td>
+						</tr>`;
+				} else {
+				  row += `<tr>
+									<td>${subCategories[j].nameSinhala}</td>
+									<td class="text-center">${subCategories[j].count}</td>
+								</tr>`;
+				}
+			  }
+				}
+	
+		} else {
+		  break;
+		}
+	
+		rowCollection += row;
+	  }
+}else if (language == '"ta"'){
+	for (let i = startCat; i < endCat; i++) {
+		let row = "";
+	
+		// check if sub categories exist
+		if (categories[i].subCategories && categories[i].subCategories.length > 0) {
+		  let subCategories = categories[i].subCategories;
+	
+				if (i == endCat-1) {
+					row = `<tr>
+							<th rowspan=${endSubCat}>
+								<div>${categories[i].categoryNameTamil}</div>
+								<div class="font-small">${categories[i].categoryNameEnglish}</div>
+							</th>`;
+	
+					for (let j = 0; j < endSubCat; j++) {
+				if (j == 0) {
+				  row += `
+							<td>${subCategories[j].nameEnglish}</td>
+							<td class="text-center">${subCategories[j].count}</td>
+						</tr>`;
+				} else {
+				  row += `<tr>
+									<td>${subCategories[j].nameEnglish}</td>
+									<td class="text-center">${subCategories[j].count}</td>
+								</tr>`;
+				}
+			  }
+				} else {
+					row = `<tr>
+							<th rowspan=${subCategories.length}>
+								<div>${categories[i].categoryNameTamil}</div>
+								<div class="font-small">${categories[i].categoryNameEnglish}</div>
+							</th>`;
+	
+					for (let j = 0; j < subCategories.length; j++) {
+				if (j == 0) {
+				  row += `
+							<td>${subCategories[j].nameEnglish}</td>
+							<td class="text-center">${subCategories[j].count}</td>
+						</tr>`;
+				} else {
+				  row += `<tr>
+									<td>${subCategories[j].nameEnglish}</td>
+									<td class="text-center">${subCategories[j].count}</td>
+								</tr>`;
+				}
+			  }
+				}
+	
+		} else {
+		  break;
+		}
+	
+		rowCollection += row;
+	  }
+}
 
   return rowCollection;
 }
