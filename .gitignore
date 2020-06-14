@@ -4,3 +4,4 @@ config.json
 .DS_Store
 package-lock.json
 static/exports
+.env
