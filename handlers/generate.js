@@ -20,9 +20,9 @@ module.exports = async function(req, res) {
         path: `static/exports/${randomID}.pdf`,
         format: 'A4',
         margin: {
-            top: 20,
+            top: 10,
             right: 0,
-            bottom: 40,
+            bottom: 10,
             left: 0
         },
         displayHeaderFooter: true,
