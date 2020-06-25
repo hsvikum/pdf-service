@@ -172,14 +172,15 @@ function generateCategoryRows(categories = []) {
                     <td class="text-center">${subCategories[j].count}</td>
                 </tr>`;
         } else {
-          row += `<tr>
-                            <td>${subCategories[j].name}</td>
-                            <td class="text-center">${subCategories[j].count}</td>
-                        </tr>`;
+		  row += `
+		  		<tr>
+					<td>${subCategories[j].name}</td>
+					<td class="text-center">${subCategories[j].count}</td>
+				</tr>`;
         }
       }
     } else {
-      break;
+      continue;
     }
 
     rowCollection += row;
