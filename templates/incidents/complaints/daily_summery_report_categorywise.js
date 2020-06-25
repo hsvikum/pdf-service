@@ -119,15 +119,20 @@ module.exports = data => {
 				</tr>`;
 
   template += generateCategoryRows(categories);
+  if (otherComplaintCount > 0){
+	template += `
+		<tr>
+			<th>
+				<div>වෙනත්</div>
+				<div class="font-small">வேறு</div>
+			</th>
+			<td></td>
+			<td class="text-center">${otherComplaintCount}</td>
+		</tr>
+	`;
+  }
+
   template += `
-				<tr>
-					<th>
-						<div>වෙනත්</div>
-						<div class="font-small">வேறு</div>
-					</th>
-					<td></td>
-					<td class="text-center">${otherComplaintCount}</td>
-				</tr>
 				<tfoot>
 					<tr class="grey text-center">
 						<td></td>
