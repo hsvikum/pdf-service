@@ -78,7 +78,7 @@ module.exports = data => {
               <hr />
               <div class="row text-center">
                 <div class="col-12">
-                  <span><u>${data.dateInfo}</u></span>
+                  <span>${data.dateInfo}</span>
                 </div>
               </div>
         
@@ -208,7 +208,8 @@ function generateRows(complaintByDistrict) {
     "බදුල්ල/பதுளை/Badulla",
     "මොනරාගල/மொனராகலை/Monaragala",
     "රත්නපුර/இரத்தினபரி/Ratnapura",
-    "කෑගල්ල/கேகாலை/Kegalle"
+    "කෑගල්ල/கேகாலை/Kegalle",
+    "ප්‍රධාන කාර්යාලය/பிரதான அலுவலகம்/Main Office"
   ];
 
   return districts
