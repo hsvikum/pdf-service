@@ -54,26 +54,26 @@ module.exports = data => {
 			</head>
 			<body class="document-border">
 				<table>
-        <tr>
-          <th style="border: none; width: 150px">
-            <img
-              src="${baseURL}/assets/national-emblem.png"
-              alt="emblem-srilanka"
-              style="height:100px;"
-            />
-          </th>
-          <th style="border: none">
-						<div class="bold">මහමැතිවරණය - 2020</div>
+				<tr>
+					<th style="border: none; width: 150px">
+						<img
+						src="${baseURL}/assets/national-emblem.png"
+						alt="emblem-srilanka"
+						style="height:100px;"
+						/>
+					</th>
+					<th style="border: none">
+						<div class="bold">පාර්ලිමේන්තු මැතිවරණය - 2020</div>
 						<div class="bold">பாராளுமன்றத் தேர்தல் - 2020</div>
 						<div class="bold">Parliamentary Election - 2020</div>
-          </th>
-          <th style="border: none; width: 150px">
-            <img
-              src="${baseURL}/assets/elections-logo.jpg"
-              alt="elections-logo"
-              style="height:100px;"
-            />
-          </th>
+					</th>
+					<th style="border: none; width: 150px">
+						<img
+						src="${baseURL}/assets/elections-logo.jpg"
+						alt="elections-logo"
+						style="height:100px;"
+						/>
+					</th>
 				</tr>
 				<tr class="grey" style="height: 70px;">
 					<th colspan="3">
@@ -84,8 +84,7 @@ module.exports = data => {
 						தேர்தல் முறைப்பாடுகள் 24 மணித்தியால சுருக்க அறிக்கை (தேர்தல்கள் முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையம்)
 					</div>
 					<div>
-						Election Complaints 24 hour summery (Election Complaints Management
-						Centre)
+						Election Complaints 24 hour summery (Election Complaints Management Centre)
 					</div>
 					</th>
 				</tr>

@@ -50,7 +50,7 @@ module.exports = (data) => {
               .thin-line-height {
                 line-height: 0.8
               }
-              .footer-contacts {
+              .footer-contacts, .top-address {
                 line-height: 1;
                 font-size: 0.9em;
               }
@@ -58,30 +58,30 @@ module.exports = (data) => {
           </head>
           <body class="document-border">
             <div class="container">
-              <div class="row hdr">
-                <div class="col-2">
+              <div class="row" style="text-align:center">
+                <div class="col-5" style="text-align:right">
                   <img
                     src="${baseURL}/assets/national-emblem.png"
                     alt="emblem-srilanka"
-                    style="width:4rem;"
+                    style="width:3.3rem;"
                   />
                 </div>
-                <div class="col-8 text-center">
+                <div class="col-5" style="text-align:left; line-height:1rem">
                   <h3>මැතිවරණ කොමිෂන් සභාව</h3>
                   <h3>தேர்தல் ஆணையம்</h3>
                 </div>
               </div>
 
               <div class="row">
-                <div class="col-6 rw1">
+                <div class="col-6" style="line-height:1rem">
                   <br />
                   දුරකථන අංක : 011-2868441, 2868442, 2868443 <br />
                   ෆැක්ස් : 011-2868426 <br />
                   web : www.elections.gov.lk &nbsp; &nbsp; e-mail : info@elections.gov.lk
                 </div>
-                <div class="col-6 adrs">
+                <div class="col-6" style="line-height:1rem">
                   මැතිවරණ කොමිෂන් සභා කාර්යාලය <br />
-                  සරණ මාවත , රාජගිරිය (10107) <br />
+                  සරණ මාවත, රාජගිරිය (10107) <br />
                   தேர்தல் ஆணையத்தின் அலுவலகம் <br />
                   சரணா மாவதா, ராஜகிரிய (10107) <br />
                 </div>
@@ -89,14 +89,19 @@ module.exports = (data) => {
               <hr />
               <div class="row">
                 <div class="col-12">
+                  <p>අධ්‍යක්ෂ (පර්යේෂණ හා සැලසුම්),</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
                   <h6 class="thin-line-height">
-                    ගතවූ පැය 24 කාලය තුළ (${today}) මැතිවරණ පැමිණිලි සාරාංශ සටහන
+                    ගතවූ පැය 24 කාලය තුළ (${data.dateInfo}) මැතිවරණ පැමිණිලි සාරාංශ සටහන
                   </h6>
                   <h6 class="thin-line-height">
-                    Summary of the complaints during the past 24 hours (${today})
+                    Summary of the complaints during the past 24 hours (${data.dateInfo})
                   </h6>
                   <h6 class="thin-line-height">
-                    கடந்த 24 மணி நேரத்தில் புகார்களின் சுருக்கம் (${today})
+                    கடந்த 24 மணி நேரத்தில் புகார்களின் சுருக்கம் (${data.dateInfo})
                   </h6>
                 </div>
               </div>
@@ -114,7 +119,7 @@ module.exports = (data) => {
                         </th>
                         <th scope="col-2">
                           ප්‍රචණ්ඩ ක්‍රියා <br />
-                          Disputes <br />
+                          Violance <br />
                           வன்ெசல்க <br />
                         </th>
                         <th scope="col-2">
@@ -128,7 +133,7 @@ module.exports = (data) => {
                         </th>
                         <th scope="col-2">
                           පැමිණිලි සංඛ්‍යාව <br />
-                          Amount of Complaints <br />
+                          Number of Complaints <br />
                           புகார்களின் எண்ணிக்கை <br />
                         </th>
                       </tr>
@@ -167,7 +172,7 @@ module.exports = (data) => {
                         </th>
                         <th scope="col-2">
                           ප්‍රචණ්ඩ ක්‍රියා <br />
-                          Disputes <br />
+                          Violance <br />
                           வன்ெசல்க <br />
                         </th>
                         <th scope="col-2">
@@ -181,7 +186,7 @@ module.exports = (data) => {
                         </th>
                         <th scope="col-2">
                           පැමිණිලි සංඛ්‍යාව <br />
-                          Amount of Complaints <br />
+                          Number of Complaints <br />
                           புகார்களின் எண்ணிக்கை <br />
                         </th>
                       </tr>
