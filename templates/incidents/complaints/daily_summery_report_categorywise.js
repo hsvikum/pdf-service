@@ -2,7 +2,7 @@ const config = require("../../../config");
 const baseURL = config("BASE_URL");
 
 module.exports = data => {
-  let date = data.date;
+  let date = new Date(data.date);
   let categories = data.categories;
   let otherComplaintCount = data.other;
   let totalComplaintCount = data.total;
@@ -63,9 +63,9 @@ module.exports = data => {
 						/>
 					</th>
 					<th style="border: none">
-						<div class="bold">පාර්ලිමේන්තු මැතිවරණය - 2020</div>
-						<div class="bold">பாராளுமன்றத் தேர்தல் - 2020</div>
-						<div class="bold">Parliamentary Election - 2020</div>
+						<div class="bold">පාර්ලිමේන්තු මැතිවරණය - ${date.getFullYear}</div>
+						<div class="bold">பாராளுமன்றத் தேர்தல் - ${date.getFullYear}</div>
+						<div class="bold">Parliamentary Election - ${date.getFullYear}</div>
 					</th>
 					<th style="border: none; width: 150px">
 						<img
@@ -90,8 +90,8 @@ module.exports = data => {
 				</tr>
 				<tr>
 					<th colspan="3">
-					<span>දිනය/திகதி/Date</span>
-					<span>${date}</span>
+					<!-- <span>දිනය/திகதி/Date</span> -->
+					<span>${data.dateInfo}</span>
 					</th>
 				</tr>
 				<tr class="grey">

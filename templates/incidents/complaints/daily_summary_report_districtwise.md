@@ -7,6 +7,8 @@ Use the following JSON as request body to populate report.
   "file": {
     "template": "incidents/complaints/daily_summary_report_districtwise.js",
     "electionDate": "2020-04-16T07:22Z",
+    "date": "2020/07/01",
+    "dateInfo": "2020/06/30 4:00pm - 2020/07/01 4:00pm",
     "complaintTotalsByType": {
       "violence": 54,
       "breachOfElectionLaws": 23,

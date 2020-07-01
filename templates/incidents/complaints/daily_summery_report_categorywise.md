@@ -3,7 +3,8 @@
 {
   "file": {
     "template": "/incidents/complaints/daily_summery_report_categorywise.js",
-    "date": "2020/05/18",
+    "date": "2020/07/01",
+    "dateInfo": "2020/06/30 4:00pm - 2020/07/01 4:00pm",
     "categories": [
       {
         "categoryNameSinhala": "ප්‍රචණ්ඩ ක්‍රියා",
