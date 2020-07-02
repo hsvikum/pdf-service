@@ -63,9 +63,9 @@ module.exports = data => {
 						/>
 					</th>
 					<th style="border: none">
-						<div class="bold">පාර්ලිමේන්තු මැතිවරණය - ${date.getFullYear}</div>
-						<div class="bold">பாராளுமன்றத் தேர்தல் - ${date.getFullYear}</div>
-						<div class="bold">Parliamentary Election - ${date.getFullYear}</div>
+						<div class="bold">පාර්ලිමේන්තු මැතිවරණය - ${date.getFullYear()}</div>
+						<div class="bold">பாராளுமன்றத் தேர்தல் - ${date.getFullYear()}</div>
+						<div class="bold">Parliamentary Election - ${date.getFullYear()}</div>
 					</th>
 					<th style="border: none; width: 150px">
 						<img
@@ -96,7 +96,7 @@ module.exports = data => {
 				</tr>
 				<tr class="grey">
 					<th colspan="3">
-					<span>පැමිණිලි වර්ගීකරණය / முறைப்பாட்டு வகைப்பாடு / Complaint classification</span>
+					<span>පැමිණිලි වර්ගීකරණය / முறைப்பாட்டு வகைப்பாடு / Complaint Classification</span>
 					</th>
 				</tr>
 				<tr class="grey">
