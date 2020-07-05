@@ -49,9 +49,6 @@ module.exports = data => {
                 margin-top: 3px;
                 margin-bottom: 3px;
               }
-              h5.heading {
-                margin-bottom: 0px
-              }
             </style>
           </head>
         
@@ -59,26 +56,30 @@ module.exports = data => {
             <div class="container">
               <div class="row text-center">
                 <div class="col-12">
-                  <h5 class="bold heading">පාර්ලිමේන්තු මැතිවරණය - ${electionDate.getFullYear()}</h5>
-                  <h5 class="bold heading">நாடாளுமன்றத் தேர்தல் - ${electionDate.getFullYear()}</h5>
-                  <h5 class="bold heading">Parliamentary Election - ${electionDate.getFullYear()}</h5>
+                  <h5 class="bold">මහමැතිවරණය - 2020.${electionDate.getMonth() +
+                    1}.${electionDate.getDate()}</h5>
+                  <h5 class="bold">நாடாளுமன்றத் தேர்தல் - 2020.${electionDate.getMonth() +
+                    1}.${electionDate.getDate()}</h5>
+                  <h5 class="bold">Parliamentary Election - 2020.${electionDate.getMonth() +
+                    1}.${electionDate.getDate()}</h5>
                 </div>
               </div>
             <hr />
               <div class="row text-center">
-                <div class="col-12 headings">
-                  <h5 class="heading">මැතිවරණ පැමිණිලි සාරාංශ වාර්තාව</h5>
+                <div class="col-12">
+                  <h5>මැතිවරණ පැමිණිලි සාරාංශ වාර්තාව</h5>
                   <h6>(දිස්ත්‍රික් මැතිවරණ පැමිණිලි කළමනාකරණ මධ්‍යස්ථාන)</h6>
-                  <h5 class="heading">தேர்தல் முறைப்பாடுகள் சுருக்க அறிக்கை</h5>
+                  <h5>தேர்தல் முறைப்பாடுகள் சுருக்க அறிக்கை</h5>
                   <h6>(மாவட்ட தேர்தல்கள் முறைப்பாட்டு முகாமைத்துவ மத்திய நிலையங்கள்)</h6>
-                  <h5 class="heading">Election Complaints Summary</h5>
+                  <h5>Election Complaints Summary</h5>
                   <h6>(District Complaint Management Centers)</h6>
                 </div>
               </div>
               <hr />
               <div class="row text-center">
                 <div class="col-12">
-                  <span>${data.dateInfo}</span>
+                  <span><u>2020.${today.getMonth() +
+                    1}.${today.getDate()} - 00.00 pm</u></span>
                 </div>
               </div>
         
@@ -208,8 +209,7 @@ function generateRows(complaintByDistrict) {
     "බදුල්ල/பதுளை/Badulla",
     "මොනරාගල/மொனராகலை/Monaragala",
     "රත්නපුර/இரத்தினபரி/Ratnapura",
-    "කෑගල්ල/கேகாலை/Kegalle",
-    "ප්‍රධාන කාර්යාලය/பிரதான அலுவலகம்/Main Office"
+    "කෑගල්ල/கேகாலை/Kagalle"
   ];
 
   return districts
